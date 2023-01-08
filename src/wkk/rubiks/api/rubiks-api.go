@@ -13,7 +13,9 @@ const (
 
 	MaxNPairs      = 8
 	MaxPairSize    = 15 * unit.KiB
-	MaxCommitSize  = 2 * MaxPairSize
+
+	// we don't want to split the single page twice in one txn
+	MaxCommitSize  = 1 * MaxPairSize
 	SerializeSize  = 1024 /*stuff*/ + MaxNPairs * MaxPairSize
 )
 
